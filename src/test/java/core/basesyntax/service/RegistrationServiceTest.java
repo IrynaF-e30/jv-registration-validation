@@ -76,7 +76,8 @@ class RegistrationServiceTest {
     // ----------------- Невалідні дані -----------------
     @Test
     void register_nullUser_notOk() {
-        assertThrows(RegistrationException.class, () -> registrationService.register(null));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(null));
     }
 
     @Test
@@ -86,7 +87,8 @@ class RegistrationServiceTest {
         user.setPassword("validPass");
         user.setAge(25);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
@@ -95,14 +97,15 @@ class RegistrationServiceTest {
         user1.setLogin("duplicateLogin");
         user1.setPassword("validPass");
         user1.setAge(25);
-        registrationService.register(user1); // реєструємо першого користувача
+        registrationService.register(user1);
 
         User user2 = new User();
         user2.setLogin("duplicateLogin");
         user2.setPassword("anotherPass");
         user2.setAge(30);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user2));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user2));
     }
 
     @Test
@@ -112,7 +115,8 @@ class RegistrationServiceTest {
         user.setPassword("123");
         user.setAge(25);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
@@ -122,7 +126,8 @@ class RegistrationServiceTest {
         user.setPassword("validPass");
         user.setAge(15);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
@@ -132,7 +137,8 @@ class RegistrationServiceTest {
         user.setPassword("validPass");
         user.setAge(null);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 }
 

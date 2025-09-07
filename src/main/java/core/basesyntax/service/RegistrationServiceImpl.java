@@ -26,7 +26,8 @@ public class RegistrationServiceImpl extends RegistrationService {
             throw new RegistrationException("Login must be at least 6 characters");
         }
         if (storageDao.get(user.getLogin()) != null) {
-            throw new RegistrationException("User with login " + user.getLogin()
+            throw new RegistrationException("User with login "
+                    + user.getLogin()
                     + " already exists");
         }
         if (user.getPassword() == null || user.getPassword().length() < 6) {
