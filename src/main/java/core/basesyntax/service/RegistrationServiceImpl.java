@@ -12,7 +12,6 @@ public class RegistrationServiceImpl extends RegistrationService {
         this.storageDao = new StorageDaoImpl();
     }
 
-    // конструктор для тестів або підміни DAO
     public RegistrationServiceImpl(StorageDao storageDao) {
         this.storageDao = storageDao;
     }
@@ -36,9 +35,9 @@ public class RegistrationServiceImpl extends RegistrationService {
         if (user.getAge() == null || user.getAge() < 18) {
             throw new RegistrationException("User must be at least 18 years old");
         }
-
         return storageDao.add(user);
     }
 }
+
 
 

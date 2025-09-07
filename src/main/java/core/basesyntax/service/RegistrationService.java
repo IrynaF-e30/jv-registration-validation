@@ -25,7 +25,8 @@ public class RegistrationService {
         }
         assert storageDao != null;
         if (storageDao.get(user.getLogin()) != null) {
-            throw new RegistrationException("User with login " + user.getLogin() + " already exists");
+            throw new RegistrationException("User with login "
+                    + user.getLogin() + " already exists");
         }
         if (user.getPassword() == null || user.getPassword().length() < 6) {
             throw new RegistrationException("Password must be at least 6 characters");
