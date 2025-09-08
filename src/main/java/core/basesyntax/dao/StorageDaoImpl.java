@@ -23,3 +23,4 @@ public class StorageDaoImpl implements StorageDao {
         return null;
     }
 }
+
